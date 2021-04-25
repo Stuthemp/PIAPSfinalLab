@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.piapslastlabs.activities.MapActivity;
+import com.example.piapslastlabs.model.Game;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Game newGame = new Game();
                 Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                intent.putExtra(Game.class.getSimpleName(),newGame);
+                startActivity(intent);
             }
         });
 

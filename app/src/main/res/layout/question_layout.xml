@@ -40,7 +40,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:src="@mipmap/kanekiKen"
+        android:src="@mipmap/kaneki_ken"
         android:id="@+id/image"
         app:layout_constraintBottom_toBottomOf="@id/answer1"
         app:layout_constraintEnd_toEndOf="parent"
