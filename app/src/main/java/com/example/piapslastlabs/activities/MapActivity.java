@@ -3,19 +3,15 @@ package com.example.piapslastlabs.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.piapslastlabs.R;
-import com.example.piapslastlabs.model.Game;
-import com.example.piapslastlabs.model.Question;
-import com.example.piapslastlabs.model.Theme;
+import com.example.piapslastlabs.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +19,7 @@ import java.util.List;
 public class MapActivity extends AppCompatActivity {
 
 
-    List<Question> questionList = new ArrayList<>();
+    List<QuestionInterface> questionList = new ArrayList<>();
 
     LinearLayout easyListView = null;
     LinearLayout normalListView = null;
@@ -48,9 +44,9 @@ public class MapActivity extends AppCompatActivity {
     Button normalChoice = null;
     Button hardChoice = null;
 
-    Question easyQuestion;
-    Question normalQuestion;
-    Question hardQuestion;
+    QuestionInterface easyQuestion;
+    QuestionInterface normalQuestion;
+    QuestionInterface hardQuestion;
 
    //ImageView mapImage = null;
 
@@ -61,9 +57,9 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        questionList.add(new Question("Один","Два","Три","Четыре",100,new Theme("Математика",R.drawable.family_father,R.color.category_math)));
-        questionList.add(new Question("Один","Два","Три","Четыре",200,new Theme("Математика",R.drawable.family_daughter,R.color.category_math)));
-        questionList.add(new Question("Один","Два","Три","Четыре",400,new Theme("Математика",R.drawable.family_grandfather,R.color.category_math)));
+        questionList.add(new QuestionText("Один","Два","Три","Четыре",100,new Theme("Математика",R.drawable.family_father,R.color.category_math)));
+        questionList.add(new QuestionText("Один","Два","Три","Четыре",200,new Theme("Математика",R.drawable.family_daughter,R.color.category_math)));
+        questionList.add(new QuestionText("Один","Два","Три","Четыре",400,new Theme("Математика",R.drawable.family_grandfather,R.color.category_math)));
 
         Bundle arguments = getIntent().getExtras();
         Game game = null;
@@ -79,7 +75,7 @@ public class MapActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MapActivity.this,QuestionActivity.class);
                 intent.putExtra(Game.class.getSimpleName(), finalGame);
-                intent.putExtra(Question.class.getSimpleName(),easyQuestion);
+                intent.putExtra(QuestionInterface.class.getSimpleName(),easyQuestion);
                 startActivity(intent);
             }
         });
@@ -150,8 +146,8 @@ public class MapActivity extends AppCompatActivity {
 
     //TODO ВСЕ МЕТОДЫ НИЖЕ ЭТО ГАВНО ЗАГЛУШКИ И БУДУТ ПЕРЕДЕЛАНЫ
 
-    private Question getEasyQuestion() {
-        Question result = null;
+    private QuestionInterface getEasyQuestion() {
+        QuestionInterface result = null;
 
         for (int i = 0; i < questionList.size(); i++) {
             if(questionList.get(i).getCost() == 100) {
@@ -163,8 +159,8 @@ public class MapActivity extends AppCompatActivity {
         return result;
     }
 
-    private Question getNormalQuestion() {
-        Question result = null;
+    private QuestionInterface getNormalQuestion() {
+        QuestionInterface result = null;
 
         for (int i = 0; i < questionList.size(); i++) {
             if(questionList.get(i).getCost() == 200) {
@@ -176,8 +172,8 @@ public class MapActivity extends AppCompatActivity {
         return result;
     }
 
-    private Question getHardQuestion() {
-        Question result = null;
+    private QuestionInterface getHardQuestion() {
+        QuestionInterface result = null;
 
         for (int i = 0; i < questionList.size(); i++) {
             if(questionList.get(i).getCost() == 400) {

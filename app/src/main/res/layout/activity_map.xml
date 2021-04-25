@@ -60,7 +60,7 @@
             android:id="@+id/normal_image"
             android:layout_width="50dp"
             android:layout_marginStart="20dp"
-            android:src="@mipmap/kaneki_ken"
+            android:src="@drawable/kaneki_ken"
             android:layout_height="50dp"/>
 
         <LinearLayout
@@ -104,7 +104,7 @@
         <ImageView
             android:id="@+id/hard_image"
             android:layout_marginStart="20dp"
-            android:src="@mipmap/kaneki_ken"
+            android:src="@drawable/kaneki_ken"
             android:layout_width="50dp"
             android:layout_height="50dp" />
 
@@ -182,7 +182,7 @@
 
         <ImageView
             android:id="@+id/easy_image"
-            android:src="@mipmap/kaneki_ken"
+            android:src="@drawable/kaneki_ken"
             android:layout_marginStart="18dp"
             android:layout_width="50dp"
             android:layout_height="50dp" />

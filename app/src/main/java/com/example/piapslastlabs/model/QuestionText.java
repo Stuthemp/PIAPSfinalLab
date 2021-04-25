@@ -3,7 +3,7 @@ package com.example.piapslastlabs.model;
 
 import java.io.Serializable;
 
-public class Question implements Serializable, Observer {
+public class QuestionText implements QuestionInterface, Serializable, Observer {
 
     private static final int NO_AUDIO_PROVIDED = -1;
 
@@ -22,7 +22,7 @@ public class Question implements Serializable, Observer {
 
     private Theme theme;
 
-    public Question(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
+    public QuestionText(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
