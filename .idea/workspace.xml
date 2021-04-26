@@ -28,7 +28,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="178102bb-9971-454a-b2e4-3cf8dd94940e" name="Default Changelist" comment="" />
+    <list default="true" id="178102bb-9971-454a-b2e4-3cf8dd94940e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/activities/MapActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/activities/MapActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/model/QuestionMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/model/QuestionMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/model/QuestionText.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/piapslastlabs/model/QuestionText.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +63,10 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-04-25T23:39:52.171Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SelectDeploymentTargetsDialog.selectedDevices" value="Pixel_3a_API_30_x86" />
+    <property name="android-custom-viewC:/Users/klilu/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="multi-representation-previewC:/Users/klilu/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -152,12 +165,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="845" y="382" width="626" height="460" key="#Notifications" timestamp="1619393269283">
+    <state x="845" y="382" width="626" height="460" key="#Notifications" timestamp="1619395366798">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="845" y="382" width="626" height="460" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1619393269283" />
+    <state x="845" y="382" width="626" height="460" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1619395366798" />
+    <state x="696" y="368" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619433177369">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="696" y="368" width="433" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1619433177369" />
     <state x="353" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1619394580413">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -166,29 +184,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="360" y="120" width="1200" height="800" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1619394014883" />
-    <state width="1340" height="224" key="GridCell.Tab.0.bottom" timestamp="1619394427479">
+    <state width="670" height="266" key="GridCell.Tab.0.bottom" timestamp="1619395700366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="224" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619394427479" />
-    <state width="1340" height="224" key="GridCell.Tab.0.center" timestamp="1619394427478">
+    <state width="670" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619395700366" />
+    <state width="670" height="266" key="GridCell.Tab.0.center" timestamp="1619395700366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="224" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619394427478" />
-    <state width="1340" height="224" key="GridCell.Tab.0.left" timestamp="1619394427478">
+    <state width="670" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619395700366" />
+    <state width="670" height="266" key="GridCell.Tab.0.left" timestamp="1619395700366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="224" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619394427478" />
-    <state width="1340" height="224" key="GridCell.Tab.0.right" timestamp="1619394427478">
+    <state width="670" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619395700366" />
+    <state width="670" height="266" key="GridCell.Tab.0.right" timestamp="1619395700366">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1340" height="224" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619394427478" />
-    <state x="196" y="53" key="SettingsEditor" timestamp="1619393440094">
+    <state width="670" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619395700366" />
+    <state x="196" y="53" key="SettingsEditor" timestamp="1619395307602">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="196" y="53" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619393440094" />
-    <state x="662" y="328" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1619393130622">
+    <state x="196" y="53" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619395307602" />
+    <state x="662" y="328" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog" timestamp="1619395604622">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="328" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619393130622" />
+    <state x="662" y="328" key="com.android.tools.idea.run.deployment.ModifyDeviceSetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619395604622" />
   </component>
 </project>

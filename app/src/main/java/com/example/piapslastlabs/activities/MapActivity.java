@@ -57,9 +57,9 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        questionList.add(new QuestionText("Один","Два","Три","Четыре",100,new Theme("Математика",R.drawable.family_father,R.color.category_math)));
-        questionList.add(new QuestionText("Один","Два","Три","Четыре",200,new Theme("Математика",R.drawable.family_daughter,R.color.category_math)));
-        questionList.add(new QuestionText("Один","Два","Три","Четыре",400,new Theme("Математика",R.drawable.family_grandfather,R.color.category_math)));
+        questionList.add(new QuestionText("Рыба?","Один","Два","Три","Четыре",100,new Theme("Математика",R.drawable.family_father,R.color.category_math)));
+        questionList.add(new QuestionMusic("Один","Два","Три","Четыре",200,new Theme("Музыка",R.drawable.family_daughter,R.color.category_math),1));
+        questionList.add(new QuestionText("Рыба?","Один","Два","Три","Четыре",400,new Theme("Математика",R.drawable.family_grandfather,R.color.category_math)));
 
         Bundle arguments = getIntent().getExtras();
         Game game = null;

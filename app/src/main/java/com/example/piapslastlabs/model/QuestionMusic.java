@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 public class QuestionMusic implements QuestionInterface, Serializable, Observer {
 
+
     private static final int NO_AUDIO_PROVIDED = -1;
 
     private String answer1;
@@ -22,13 +23,14 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
 
     private Theme theme;
 
-    public QuestionMusic(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
+    public QuestionMusic(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme, int audioResourceId) {
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
         this.cost = cost;
         this.theme = theme;
+        this.audioResourceId = audioResourceId;
     }
 
     @Override
@@ -97,7 +99,7 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
         this.theme = theme;
     }
 
-    boolean HAS_SOUND = false;
+    boolean HAS_SOUND = true;
 
 
 

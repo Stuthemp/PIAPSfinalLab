@@ -7,6 +7,7 @@ public class QuestionText implements QuestionInterface, Serializable, Observer {
 
     private static final int NO_AUDIO_PROVIDED = -1;
 
+    private String question;
     private String answer1;
     private String answer2;
     private String answer3;
@@ -22,7 +23,8 @@ public class QuestionText implements QuestionInterface, Serializable, Observer {
 
     private Theme theme;
 
-    public QuestionText(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
+    public QuestionText(String question,String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
+        this.question = question;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
@@ -47,6 +49,14 @@ public class QuestionText implements QuestionInterface, Serializable, Observer {
 
     public static int getNoAudioProvided() {
         return NO_AUDIO_PROVIDED;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String answer1) {
+        this.question = question;
     }
 
     public String getAnswer1() {
