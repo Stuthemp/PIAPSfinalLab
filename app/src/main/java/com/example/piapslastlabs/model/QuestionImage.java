@@ -1,16 +1,27 @@
 package com.example.piapslastlabs.model;
 
 
+import com.example.piapslastlabs.utils.Observer;
+
 import java.io.Serializable;
 
-public class Question implements Serializable, Observer {
+public class QuestionImage implements Serializable, Observer, QuestionInterface {
 
-    private static final int NO_AUDIO_PROVIDED = -1;
 
     private String answer1;
     private String answer2;
     private String answer3;
     private String answer4;
+
+    int imageId;
+
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
 
     int id;
 
@@ -18,22 +29,21 @@ public class Question implements Serializable, Observer {
 
     boolean isPlayed = false;
 
-    private int audioResourceId = NO_AUDIO_PROVIDED;
-
     private Theme theme;
 
-    public Question(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme) {
+    public QuestionImage(String answer1, String answer2, String answer3, String answer4, int cost, Theme theme, int resourceId) {
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
         this.cost = cost;
         this.theme = theme;
+        imageId = resourceId;
     }
 
     @Override
-    public void update(int id) {
-        if(id == this.id)
+    public void update(QuestionInterface questionInterface) {
+        if(questionInterface.equals(this))
             isPlayed = true;
     }
 
@@ -45,9 +55,6 @@ public class Question implements Serializable, Observer {
         this.cost = cost;
     }
 
-    public static int getNoAudioProvided() {
-        return NO_AUDIO_PROVIDED;
-    }
 
     public String getAnswer1() {
         return answer1;
@@ -81,12 +88,14 @@ public class Question implements Serializable, Observer {
         this.answer4 = answer4;
     }
 
-    public int getAudioResourceId() {
-        return audioResourceId;
+    @Override
+    public int getResourceId() {
+        return imageId;
     }
 
-    public void setAudioResourceId(int audioResourceId) {
-        this.audioResourceId = audioResourceId;
+    @Override
+    public void setAvailability(boolean b) {
+        isPlayed = b;
     }
 
     public Theme getTheme() {
@@ -97,7 +106,31 @@ public class Question implements Serializable, Observer {
         this.theme = theme;
     }
 
-    boolean HAS_SOUND = false;
+    @Override
+    public String getText() {
+        return "No text provided";
+    }
+
+    @Override
+    public boolean isAvailable() {
+        return !isPlayed;
+    }
+
+    @Override
+    public boolean hasSound() {
+        return false;
+    }
+
+    @Override
+    public boolean hasText() {
+        return false;
+    }
+
+    @Override
+    public boolean hasImage() {
+        return true;
+    }
+
 
 
 

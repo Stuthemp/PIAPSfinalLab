@@ -4,64 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#606288"
+    android:background="@drawable/map_uli"
     tools:context=".activities.MapActivity">
 
     <Button
         android:id="@+id/level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Уровень"
         android:minWidth="100dp"
-        android:background="@drawable/my_button"
         app:layout_constraintRight_toLeftOf="@+id/score"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/map"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/score"
-        android:minWidth="100dp"
-        android:maxWidth="100dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Очки"
-        android:background="@drawable/my_button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/level"
-        app:layout_constraintBottom_toTopOf="@id/map"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:src="@drawable/doors2"
-        android:id="@+id/map"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:scaleType="centerInside"
-        app:layout_constraintTop_toBottomOf="@id/score"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/normal_choice"/>
 
     <LinearLayout
         android:id="@+id/normal_question"
         android:layout_width="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
-        android:orientation="vertical"
         android:layout_height="100dp"
-        app:layout_constraintRight_toRightOf="@id/map"
-        app:layout_constraintLeft_toLeftOf="@id/map"
-        app:layout_constraintTop_toTopOf="@id/map"
-        app:layout_constraintBottom_toBottomOf="@id/map">
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toTopOf="@id/guideline_top"
+        app:layout_constraintBottom_toTopOf="@+id/easy_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
 
         <ImageView
             android:id="@+id/normal_image"
             android:layout_width="50dp"
-            android:layout_marginStart="20dp"
-            android:src="@mipmap/kaneki_ken"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/kaneki_ken" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -69,21 +56,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/normal_theme_name"
-                android:text="Theme"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
-                android:layout_width="100dp"
-                android:textAlignment="center"
-                android:layout_height="25dp"/>
-            <TextView
                 android:id="@+id/normal_cost"
-                android:text="200"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
                 android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:text="200"
                 android:textAlignment="center"
-                android:layout_height="25dp"/>
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
@@ -92,100 +71,55 @@
     <LinearLayout
         android:id="@+id/hard_question"
         android:layout_width="100dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
         android:layout_height="100dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@id/map"
-        app:layout_constraintBottom_toBottomOf="@id/map"
-        app:layout_constraintEnd_toEndOf="@id/map"
-        app:layout_constraintStart_toEndOf="@id/normal_choice">
+        app:layout_constraintTop_toBottomOf="@id/normal_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/easy_question"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom">
 
         <ImageView
             android:id="@+id/hard_image"
-            android:layout_marginStart="20dp"
-            android:src="@mipmap/kaneki_ken"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/kaneki_ken" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/hard_theme_name"
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:textAlignment="center"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
-                android:text="Theme" />
 
             <TextView
                 android:id="@+id/hard_cost"
                 android:layout_width="100dp"
-                android:textAlignment="center"
                 android:layout_height="25dp"
+                android:text="400"
+                android:textAlignment="center"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
-                android:text="400" />
+                android:textColor="@android:color/white" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-
-
-    <Button
-        android:id="@+id/normal_choice"
-        android:text="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/map"
-        app:layout_constraintBottom_toTopOf="@id/easy_choice"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-    <Button
-        android:id="@+id/easy_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        app:layout_constraintRight_toLeftOf="@+id/hard_choice"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/normal_choice" />
-
-    <Button
-        android:id="@+id/hard_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintLeft_toRightOf="@+id/easy_choice"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/normal_choice"/>
-
     <LinearLayout
         android:id="@+id/easy_question"
-        android:layout_marginTop="20dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@id/map"
-        app:layout_constraintBottom_toBottomOf="@id/map"
-        app:layout_constraintStart_toStartOf="@id/map"
-        app:layout_constraintEnd_toStartOf="@id/normal_question"
-        >
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintEnd_toStartOf="@id/hard_question"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+        app:layout_constraintTop_toBottomOf="@id/normal_question">
 
         <ImageView
             android:id="@+id/easy_image"
-            android:src="@mipmap/kaneki_ken"
-            android:layout_marginStart="18dp"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/kaneki_ken" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -193,28 +127,39 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/easy_theme_name"
-                android:layout_width="100dp"
-                android:layout_height="25dp"
-                android:textAlignment="center"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
-                android:text="Theme" />
-
-            <TextView
                 android:id="@+id/easy_cost"
                 android:layout_width="100dp"
-                android:textAlignment="center"
                 android:layout_height="25dp"
+                android:text="100"
+                android:textAlignment="center"
                 android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@android:color/white"
-                android:text="100" />
+                android:textColor="@android:color/white" />
 
 
         </LinearLayout>
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="wrap_content"
+        app:layout_constraintGuide_begin="160dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        app:layout_constraintGuide_begin="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        app:layout_constraintGuide_begin="600dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

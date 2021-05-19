@@ -1,5 +1,8 @@
 package com.example.piapslastlabs.model;
 
+import com.example.piapslastlabs.utils.Observable;
+import com.example.piapslastlabs.utils.Observer;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +12,7 @@ public class Game implements Serializable, Observable {
     private final int SCORE_FOR_WIN = 1000;
 
     private int score = 0;
+
 
 
 
@@ -30,6 +34,10 @@ public class Game implements Serializable, Observable {
 
     }
 
+    public void addScore(int score){
+        this.score += score;
+    }
+
     @Override
     public void RegisterObserver(Observer o) {
         observers.add(o);
@@ -41,14 +49,17 @@ public class Game implements Serializable, Observable {
     }
 
     @Override
-    public void NotifyObservers(int id) {
+    public void NotifyObservers(QuestionInterface  questionInterface) {
         for (Observer o: observers)
         {
-            o.update(id);
+            o.update(questionInterface);
         }
     }
 
 
+    public void increaseLvl(){
+        level++;
+    }
 
     public int getLevel() {
         return level;

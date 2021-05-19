@@ -2,92 +2,129 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/tree_back">
 
     <Button
         android:id="@+id/help"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Помошь"
         app:layout_constraintRight_toLeftOf="@+id/level"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/level"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Уровень"
-        app:layout_constraintRight_toLeftOf="@+id/points"
+        app:layout_constraintRight_toLeftOf="@+id/points_question"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintLeft_toRightOf="@+id/help"
-        app:layout_constraintBottom_toTopOf="@id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/points"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/points_question"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Очки"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintLeft_toRightOf="@+id/level"
-        app:layout_constraintBottom_toTopOf="@id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@mipmap/kaneki_ken"
+    <TextView
         android:id="@+id/image"
-        app:layout_constraintBottom_toBottomOf="@id/answer1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:text="Кем по профессии был А.П.Чехов?"
+        android:textColor="@android:color/white"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@id/answer1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/help" />
+        app:layout_constraintTop_toBottomOf="@id/help"/>
+
+    <ImageView
+        android:id="@+id/actual_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@id/answer1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/help"
+        />
+
+    <Button
+        android:id="@+id/play_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/play_png"
+        app:layout_constraintStart_toStartOf="@id/actual_image"
+        app:layout_constraintEnd_toEndOf="@id/actual_image"
+        app:layout_constraintBottom_toBottomOf="@id/actual_image"
+        />
 
 
 
     <Button
         android:id="@+id/answer1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Ответ 1"
-        app:layout_constraintRight_toLeftOf="@+id/answer2"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/answer3"
+        app:layout_constraintBottom_toTopOf="@id/answer2"
         app:layout_constraintTop_toBottomOf="@id/image" />
 
     <Button
         android:id="@+id/answer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Ответ 2"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/answer1"
-        app:layout_constraintBottom_toTopOf="@id/answer4"
-        app:layout_constraintTop_toBottomOf="@id/image" />
-
-    <Button
-        android:id="@+id/answer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ответ 3"
-        app:layout_constraintRight_toLeftOf="@+id/answer4"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/answer3"
         app:layout_constraintTop_toBottomOf="@id/answer1" />
 
     <Button
+        android:id="@+id/answer3"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
+        android:text="Ответ 3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/answer4"
+        app:layout_constraintTop_toBottomOf="@id/answer2" />
+
+    <Button
         android:id="@+id/answer4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        app:backgroundTint="@null"
+        android:background="@drawable/button_custom"
         android:text="Ответ 4"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/answer3"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/answer2" />
+        app:layout_constraintTop_toBottomOf="@id/answer3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

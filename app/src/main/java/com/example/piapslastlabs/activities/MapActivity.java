@@ -3,27 +3,32 @@ package com.example.piapslastlabs.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.piapslastlabs.R;
+import com.example.piapslastlabs.controller.GameProcess;
+import com.example.piapslastlabs.controller.QuestionRandomizer;
+import com.example.piapslastlabs.data.QuestionsDatabase;
 import com.example.piapslastlabs.model.Game;
-import com.example.piapslastlabs.model.Question;
+import com.example.piapslastlabs.model.QuestionImage;
+import com.example.piapslastlabs.model.QuestionInterface;
 import com.example.piapslastlabs.model.Theme;
+import com.example.piapslastlabs.model.ThemeType;
+import com.example.piapslastlabs.model.theme.ThemeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
 
+    GameProcess gameProcess = null;
 
-    List<Question> questionList = new ArrayList<>();
+   // List<QuestionImage> questionList = new ArrayList<>();
 
     LinearLayout easyListView = null;
     LinearLayout normalListView = null;
@@ -33,9 +38,6 @@ public class MapActivity extends AppCompatActivity {
     ImageView normalImageView = null;
     ImageView hardImageView = null;
 
-    TextView easyTextView = null;
-    TextView normalTextView = null;
-    TextView hardTextView = null;
 
     TextView easyCost = null;
     TextView normalCost = null;
@@ -44,13 +46,15 @@ public class MapActivity extends AppCompatActivity {
     Button score = null;
     Button level = null;
 
-    Button easyChoice = null;
-    Button normalChoice = null;
-    Button hardChoice = null;
+    LinearLayout easyChoice = null;
+    LinearLayout normalChoice = null;
+    LinearLayout hardChoice = null;
 
-    Question easyQuestion;
-    Question normalQuestion;
-    Question hardQuestion;
+    QuestionInterface easyQuestion;
+    QuestionInterface normalQuestion;
+    QuestionInterface hardQuestion;
+
+//    QuestionRandomizer questionRandomizer = new QuestionRandomizer();
 
    //ImageView mapImage = null;
 
@@ -61,25 +65,51 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
-        questionList.add(new Question("Один","Два","Три","Четыре",100,new Theme("Математика",R.drawable.family_father,R.color.category_math)));
-        questionList.add(new Question("Один","Два","Три","Четыре",200,new Theme("Математика",R.drawable.family_daughter,R.color.category_math)));
-        questionList.add(new Question("Один","Два","Три","Четыре",400,new Theme("Математика",R.drawable.family_grandfather,R.color.category_math)));
+
+
+//        questionList.add(new QuestionImage("Один","Два","Три","Четыре",100, ThemeFactory.createTheme(ThemeType.ENTERTAINMENT),R.drawable.family_older_brother));
+//        questionList.add(new QuestionImage("Один","Два","Три","Четыре",200,ThemeFactory.createTheme(ThemeType.GEOGRAPHY),R.drawable.family_older_brother));
+//        questionList.add(new QuestionImage("Один","Два","Три","Четыре",400,ThemeFactory.createTheme(ThemeType.HISTORY),R.drawable.family_older_brother));
 
         Bundle arguments = getIntent().getExtras();
-        Game game = null;
+
 
         if(arguments != null){
-            game = (Game) arguments.getSerializable(Game.class.getSimpleName());
-            generateMap(game);
+            gameProcess = (GameProcess) arguments.getSerializable(GameProcess.class.getSimpleName());
+            generateMap(gameProcess);
         }
 
-        Game finalGame = game;
+        GameProcess finalGame = gameProcess;
         easyChoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finalGame.getGame().NotifyObservers(easyQuestion);
                 Intent intent = new Intent(MapActivity.this,QuestionActivity.class);
-                intent.putExtra(Game.class.getSimpleName(), finalGame);
-                intent.putExtra(Question.class.getSimpleName(),easyQuestion);
+                intent.putExtra(GameProcess.class.getSimpleName(), finalGame);
+                intent.putExtra(QuestionInterface.class.getSimpleName(),easyQuestion);
+                startActivity(intent);
+            }
+        });
+
+        normalChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalGame.getGame().NotifyObservers(normalQuestion);
+                Intent intent = new Intent(MapActivity.this,QuestionActivity.class);
+                intent.putExtra(GameProcess.class.getSimpleName(), finalGame);
+                intent.putExtra(QuestionInterface.class.getSimpleName(),normalQuestion);
+                startActivity(intent);
+            }
+        });
+
+        hardChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                finalGame.getGame().NotifyObservers(hardQuestion);
+                Intent intent = new Intent(MapActivity.this,QuestionActivity.class);
+                intent.putExtra(GameProcess.class.getSimpleName(), finalGame);
+                intent.putExtra(QuestionInterface.class.getSimpleName(),hardQuestion);
                 startActivity(intent);
             }
         });
@@ -93,17 +123,17 @@ public class MapActivity extends AppCompatActivity {
      * @param game - Текущая игра, получаем оттуда какой сейчас ход и сколько у насочков */
     //TODO Это все вероятно надо выбросить в отдельный класс, как раз с каким-нить паттреном
 
-    private void generateMap(Game game){
+    private void generateMap(GameProcess game){
 
         score = (Button) findViewById(R.id.score);
         level = (Button) findViewById(R.id.level);
 
-        score.setText(String.valueOf(game.getScore()));
-        level.setText(String.valueOf(game.getLevel()));
+        score.setText(String.valueOf(game.getGame().getScore()));
+        level.setText(String.valueOf(game.getGame().getLevel()));
 
-        easyQuestion = getEasyQuestion();
-        normalQuestion = getNormalQuestion();
-        hardQuestion = getHardQuestion();
+        easyQuestion = game.getQuestionRandomizer().getEasyQuestion();
+        normalQuestion = game.getQuestionRandomizer().getNormalQuestion();
+        hardQuestion = game.getQuestionRandomizer().getHardQuestion();
 
         easyListView = (LinearLayout) findViewById(R.id.easy_question);
         normalListView = (LinearLayout) findViewById(R.id.normal_question);
@@ -114,35 +144,29 @@ public class MapActivity extends AppCompatActivity {
         normalImageView = (ImageView) findViewById(R.id.normal_image);
         hardImageView = (ImageView) findViewById(R.id.hard_image);
 
-        easyTextView = (TextView) findViewById(R.id.easy_theme_name);
-        normalTextView = (TextView) findViewById(R.id.normal_theme_name);
-        hardTextView = (TextView) findViewById(R.id.hard_theme_name);
 
         easyCost = (TextView) findViewById(R.id.easy_cost);
         normalCost = (TextView) findViewById(R.id.normal_cost);
         hardCost = (TextView) findViewById(R.id.hard_cost);
 
         easyImageView.setImageResource(easyQuestion.getTheme().getImage());
-        easyTextView.setText(easyQuestion.getTheme().getName());
         easyCost.setText(String.valueOf(easyQuestion.getCost()));
 
         normalImageView.setImageResource(normalQuestion.getTheme().getImage());
-        normalTextView.setText(normalQuestion.getTheme().getName());
         normalCost.setText(String.valueOf(normalQuestion.getCost()));
 
         hardImageView.setImageResource(hardQuestion.getTheme().getImage());
-        hardTextView.setText(hardQuestion.getTheme().getName());
         hardCost.setText(String.valueOf(hardQuestion.getCost()));
 
 
         //TODO Возможно добавить цвета для тем и раскрашивать кнопки в них
-        easyChoice = (Button) findViewById(R.id.easy_choice);
-        normalChoice = (Button) findViewById(R.id.normal_choice);
-        hardChoice = (Button) findViewById(R.id.hard_choice);
+        easyChoice =  findViewById(R.id.easy_question);
+        normalChoice =  findViewById(R.id.normal_question);
+        hardChoice =  findViewById(R.id.hard_question);
 
-        easyChoice.setBackgroundColor(getResources().getColor(easyQuestion.getTheme().getColor()));
-        normalChoice.setBackgroundColor(getResources().getColor(normalQuestion.getTheme().getColor()));
-        hardChoice.setBackgroundColor(getResources().getColor(hardQuestion.getTheme().getColor()));
+//        easyCost.setBackgroundColor(getResources().getColor(easyQuestion.getTheme().getColor()));
+//        normalCost.setBackgroundColor(getResources().getColor(normalQuestion.getTheme().getColor()));
+        //hardChoice.setBackgroundColor(getResources().getColor(hardQuestion.getTheme().getColor()));
 
         //mapImage.setImageResource(R.drawable.doors2);
 
@@ -150,44 +174,44 @@ public class MapActivity extends AppCompatActivity {
 
     //TODO ВСЕ МЕТОДЫ НИЖЕ ЭТО ГАВНО ЗАГЛУШКИ И БУДУТ ПЕРЕДЕЛАНЫ
 
-    private Question getEasyQuestion() {
-        Question result = null;
-
-        for (int i = 0; i < questionList.size(); i++) {
-            if(questionList.get(i).getCost() == 100) {
-                result = questionList.get(i);
-                break;
-            }
-        }
-
-        return result;
-    }
-
-    private Question getNormalQuestion() {
-        Question result = null;
-
-        for (int i = 0; i < questionList.size(); i++) {
-            if(questionList.get(i).getCost() == 200) {
-                result = questionList.get(i);
-                break;
-            }
-        }
-
-        return result;
-    }
-
-    private Question getHardQuestion() {
-        Question result = null;
-
-        for (int i = 0; i < questionList.size(); i++) {
-            if(questionList.get(i).getCost() == 400) {
-                result = questionList.get(i);
-                break;
-            }
-        }
-
-        return result;
-    }
+//    private QuestionImage getEasyQuestion() {
+//        QuestionImage result = null;
+//
+//        for (int i = 0; i < questionList.size(); i++) {
+//            if(questionList.get(i).getCost() == 100) {
+//                result = questionList.get(i);
+//                break;
+//            }
+//        }
+//
+//        return result;
+//    }
+//
+//    private QuestionImage getNormalQuestion() {
+//        QuestionImage result = null;
+//
+//        for (int i = 0; i < questionList.size(); i++) {
+//            if(questionList.get(i).getCost() == 200) {
+//                result = questionList.get(i);
+//                break;
+//            }
+//        }
+//
+//        return result;
+//    }
+//
+//    private QuestionImage getHardQuestion() {
+//        QuestionImage result = null;
+//
+//        for (int i = 0; i < questionList.size(); i++) {
+//            if(questionList.get(i).getCost() == 400) {
+//                result = questionList.get(i);
+//                break;
+//            }
+//        }
+//
+//        return result;
+//    }
 
 
 }
