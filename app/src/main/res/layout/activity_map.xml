@@ -7,6 +7,7 @@
     android:background="#606288"
     tools:context=".activities.MapActivity">
 
+<<<<<<< Updated upstream
     <Button
         android:id="@+id/level"
         android:layout_width="wrap_content"
@@ -19,6 +20,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/map"
         app:layout_constraintTop_toTopOf="parent" />
+=======
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/score"
@@ -29,8 +32,12 @@
         android:text="Очки"
         android:background="@drawable/my_button"
         app:layout_constraintRight_toRightOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintLeft_toRightOf="@+id/level"
         app:layout_constraintBottom_toTopOf="@id/map"
+=======
+        app:layout_constraintLeft_toLeftOf="parent"
+>>>>>>> Stashed changes
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView

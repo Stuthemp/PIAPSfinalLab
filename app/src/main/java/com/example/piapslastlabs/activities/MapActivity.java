@@ -38,7 +38,7 @@ public class MapActivity extends AppCompatActivity {
     TextView hardCost = null;
 
     Button score = null;
-    Button level = null;
+
 
     Button easyChoice = null;
     Button normalChoice = null;
@@ -92,10 +92,13 @@ public class MapActivity extends AppCompatActivity {
     private void generateMap(Game game){
 
         score = (Button) findViewById(R.id.score);
-        level = (Button) findViewById(R.id.level);
 
+<<<<<<< Updated upstream
         score.setText(String.valueOf(game.getScore()));
         level.setText(String.valueOf(game.getLevel()));
+=======
+        score.setText(String.valueOf(game.getGame().getScore()));
+>>>>>>> Stashed changes
 
         easyQuestion = getEasyQuestion();
         normalQuestion = getNormalQuestion();

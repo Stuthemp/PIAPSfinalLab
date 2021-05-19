@@ -19,7 +19,7 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
 
     boolean isPlayed = false;
 
-    private int audioResourceId = NO_AUDIO_PROVIDED;
+    private int audioResourceId = 0;
 
     private Theme theme;
 
@@ -83,6 +83,14 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
         this.answer4 = answer4;
     }
 
+<<<<<<< Updated upstream
+=======
+    @Override
+    public int getResourceId() {
+        return audioResourceId;
+    }
+
+>>>>>>> Stashed changes
     public int getAudioResourceId() {
         return audioResourceId;
     }
