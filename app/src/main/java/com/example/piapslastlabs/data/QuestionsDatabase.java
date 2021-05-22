@@ -5,6 +5,7 @@ import com.example.piapslastlabs.model.QuestionImage;
 import com.example.piapslastlabs.model.QuestionInterface;
 import com.example.piapslastlabs.model.QuestionMusic;
 import com.example.piapslastlabs.model.QuestionText;
+import com.example.piapslastlabs.model.QuestionVideo;
 import com.example.piapslastlabs.model.Theme;
 import com.example.piapslastlabs.model.ThemeType;
 import com.example.piapslastlabs.model.theme.ThemeFactory;
@@ -264,7 +265,14 @@ public class QuestionsDatabase implements Serializable {
         questionsList.add(new QuestionText("Кем являлся Н.А. Львов?","архитектором-дилетантом","скульптором",
                 "архитектором-профессионалом","писателем",200, ThemeFactory.createTheme(ThemeType.ART)));
 
-
+        questionsList.add(new QuestionVideo("1","Павлов","Смирнов","Щербаков",
+                400, ThemeFactory.createTheme(ThemeType.SCIENCE), R.raw.small));
+        questionsList.add(new QuestionVideo("2","Павлов","Смирнов","Щербаков",
+                400, ThemeFactory.createTheme(ThemeType.SCIENCE), R.raw.pososi));
+        questionsList.add(new QuestionVideo("3","Павлов","Смирнов","Щербаков",
+                400, ThemeFactory.createTheme(ThemeType.SCIENCE), R.raw.small));
+        questionsList.add(new QuestionVideo("4","Павлов","Смирнов","Щербаков",
+                400, ThemeFactory.createTheme(ThemeType.SCIENCE), R.raw.small));
     }
 
     public static QuestionsDatabase getInstance(){

@@ -131,7 +131,10 @@ public class QuestionImage implements Serializable, Observer, QuestionInterface 
         return true;
     }
 
-
+    @Override
+    public boolean hasVideo() {
+        return false;
+    }
 
 
 }

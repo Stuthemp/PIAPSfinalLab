@@ -9,20 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.piapslastlabs.R;
 import com.example.piapslastlabs.controller.GameProcess;
-import com.example.piapslastlabs.controller.QuestionRandomizer;
-import com.example.piapslastlabs.data.QuestionsDatabase;
-import com.example.piapslastlabs.model.Game;
-import com.example.piapslastlabs.model.QuestionImage;
 import com.example.piapslastlabs.model.QuestionInterface;
-import com.example.piapslastlabs.model.Theme;
-import com.example.piapslastlabs.model.ThemeType;
-import com.example.piapslastlabs.model.theme.ThemeFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MapActivity extends AppCompatActivity {
 
@@ -146,6 +137,7 @@ public class MapActivity extends AppCompatActivity {
         easyCost = (TextView) findViewById(R.id.easy_cost);
         normalCost = (TextView) findViewById(R.id.normal_cost);
         hardCost = (TextView) findViewById(R.id.hard_cost);
+
 
         easyImageView.setImageResource(easyQuestion.getTheme().getImage());
         easyCost.setText(String.valueOf(easyQuestion.getCost()));

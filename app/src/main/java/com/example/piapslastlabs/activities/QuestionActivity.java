@@ -7,13 +7,16 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.MediaController;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -138,6 +141,8 @@ public class QuestionActivity extends AppCompatActivity {
                 Director.buildQuestion(new SoundQuestionBuilder());
             else if(question.hasText())
                 Director.buildQuestion(new TextQuestionBuilder());
+            else if(question.hasVideo())
+                Director.buildQuestion(new VideoQuestionBuilder());
             else
                 Log.e("Question build", "No text no sound no image :(");
         }
@@ -295,7 +300,7 @@ public class QuestionActivity extends AppCompatActivity {
         TextView tv;
         ArrayList<String> answerList;
         ImageView iv;
-
+        VideoView vv;
 
         @Override
         public void setAnswers() {
@@ -349,6 +354,78 @@ public class QuestionActivity extends AppCompatActivity {
 
     private boolean checkAnswer(Button button){
         return String.valueOf(button.getText()).equals(question.getAnswer1());
+    }
+
+    public class VideoQuestionBuilder implements QuestionBuilder {
+
+        QuestionMusic qi;
+        ImageView iv;
+        TextView tv;
+        VideoView vv;
+        Button pb;
+        ArrayList<String> answerList;
+
+        @Override
+        public void setAnswers() {
+            answer1 = (Button) findViewById(R.id.answer1);
+            answer2 = (Button) findViewById(R.id.answer2);
+            answer3 = (Button) findViewById(R.id.answer3);
+            answer4 = (Button) findViewById(R.id.answer4);
+
+            if(answer1 != null) {
+                answer1.setText(answerList.get(0));
+                answer2.setText(answerList.get(1));
+                answer3.setText(answerList.get(2));
+                answer4.setText(answerList.get(3));
+            }
+        }
+
+
+        @Override
+        public void setScore() {
+            points = (Button) findViewById(R.id.points_question);
+            points.setText(String.valueOf(gameProcess.getGame().getScore()));
+        }
+
+        @Override
+        public void setLevel() {
+
+        }
+
+        @Override
+        public ArrayList<String> shuffleQuestions() {
+            answerList = new ArrayList<>(4);
+            Log.v("isQNull",question.getAnswer1());
+            answerList.add(question.getAnswer1());
+            answerList.add(question.getAnswer2());
+            answerList.add(question.getAnswer3());
+            answerList.add(question.getAnswer4());
+            Collections.shuffle(answerList);
+            return answerList;
+        }
+
+        @Override
+        public void setResource() {
+            vv = (VideoView) findViewById(R.id.video_view);
+            vv.setVisibility(View.VISIBLE);
+            String videoPath = "android.resource://" + getPackageName() + "/" + question.getResourceId();
+            Uri uri = Uri.parse(videoPath);
+            vv.setVideoURI(uri);
+            vv.requestFocus(0);
+
+            vv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(vv.isPlaying())
+                        vv.pause();
+                    else
+                        vv.start();
+
+                }
+            });
+        }
+
+
     }
 
     public class SoundQuestionBuilder implements QuestionBuilder {

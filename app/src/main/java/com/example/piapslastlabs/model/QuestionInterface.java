@@ -44,6 +44,7 @@ public interface QuestionInterface extends Serializable, Observer {
     boolean hasSound();
     boolean hasText();
     boolean hasImage();
+    boolean hasVideo();
 
 
 

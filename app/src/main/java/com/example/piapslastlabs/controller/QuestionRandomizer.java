@@ -56,7 +56,7 @@ public class QuestionRandomizer implements Serializable {
         Collections.shuffle(questionList);
 
         for (int i = 0; i < questionList.size(); i++) {
-            if(questionList.get(i).getCost() == 400 && questionList.get(i).isAvailable()) {
+            if(questionList.get(i).getCost() == 400 && questionList.get(i).isAvailable() && questionList.get(i).hasVideo()) {
                 result = questionList.get(i);
                 questionList.get(i).setAvailability(true);
                 break;

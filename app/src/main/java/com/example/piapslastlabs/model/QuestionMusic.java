@@ -136,5 +136,8 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
         return false;
     }
 
-
+    @Override
+    public boolean hasVideo() {
+        return false;
+    }
 }
