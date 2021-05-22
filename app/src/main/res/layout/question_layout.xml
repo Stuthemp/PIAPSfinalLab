@@ -5,28 +5,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/tree_back">
 
-    <Button
-        android:id="@+id/help"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/button_custom"
-        android:text="Помошь"
-        app:layout_constraintRight_toLeftOf="@+id/level"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/level"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        app:backgroundTint="@null"
-        android:background="@drawable/button_custom"
-        android:text="Уровень"
-        app:layout_constraintRight_toLeftOf="@+id/points_question"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintLeft_toRightOf="@+id/help"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/points_question"
@@ -37,7 +15,7 @@
         android:text="Очки"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintLeft_toRightOf="@+id/level"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -54,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@id/answer1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/help"/>
+        app:layout_constraintTop_toBottomOf="@id/points_question"/>
 
     <ImageView
         android:id="@+id/actual_image"
@@ -63,18 +41,9 @@
         app:layout_constraintBottom_toTopOf="@id/answer1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/help"
+        app:layout_constraintTop_toBottomOf="@id/points_question"
         />
 
-    <Button
-        android:id="@+id/play_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@drawable/play_png"
-        app:layout_constraintStart_toStartOf="@id/actual_image"
-        app:layout_constraintEnd_toEndOf="@id/actual_image"
-        app:layout_constraintBottom_toBottomOf="@id/actual_image"
-        />
 
 
 

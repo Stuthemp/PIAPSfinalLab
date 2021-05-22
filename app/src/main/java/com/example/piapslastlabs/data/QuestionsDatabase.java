@@ -112,13 +112,13 @@ public class QuestionsDatabase implements Serializable {
                 "Кислород","Хлор",100, ThemeFactory.createTheme(ThemeType.SCIENCE)));
 
         questionsList.add(new QuestionText("Диапозон типа byte","-127 128","-255 256",
-                "Хатсуне","Мирай",100, ThemeFactory.createTheme(ThemeType.SCIENCE)));
+                "-128 128","-256 256",100, ThemeFactory.createTheme(ThemeType.SCIENCE)));
 
         questionsList.add(new QuestionText("Что такое сёдзё?","аниме для девушек","аниме со сценами битвы",
                 "самурай","механический человек",100, ThemeFactory.createTheme(ThemeType.ENTERTAINMENT)));
 
         questionsList.add(new QuestionText("Имя главного героя аниме Yuri!!! On Ice","Юрий","Иван",
-                "-128 128","-256 256",100, ThemeFactory.createTheme(ThemeType.ENTERTAINMENT)));
+                "Хатсуне","Мирай",100, ThemeFactory.createTheme(ThemeType.ENTERTAINMENT)));
 
         questionsList.add(new QuestionText("Самое длинное аниме имеет серий","7000","4000",
                 "1200","700",200, ThemeFactory.createTheme(ThemeType.ENTERTAINMENT)));

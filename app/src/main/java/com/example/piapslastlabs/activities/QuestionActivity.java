@@ -40,7 +40,6 @@ public class QuestionActivity extends AppCompatActivity {
     Button answer3;
     Button answer4;
     Button points;
-    Button level;
 
     /** Handles playback of all the sound files */
     private MediaPlayer mMediaPlayer;
@@ -150,11 +149,13 @@ public class QuestionActivity extends AppCompatActivity {
                 if(String.valueOf(answer1.getText()).equals(question.getAnswer1())){
                     gameProcess.addScore(question);
                     if(gameProcess.isScoreEnough()){
-                        //Старт активити с победой
+                        winDialog();
                     }
-                    Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
-                    intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
-                    startActivity(intent);
+                    else {
+                        Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
+                        intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
+                        startActivity(intent);
+                    }
                 } else {
                     lostDialog();
                 }
@@ -168,11 +169,13 @@ public class QuestionActivity extends AppCompatActivity {
                     gameProcess.addScore(question);
                     //Старт активити с некст мапой, или концом игры
                     if(gameProcess.isScoreEnough()){
-                        //Старт активити с победой
+                        winDialog();
                     }
-                    Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
-                    intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
-                    startActivity(intent);
+                    else {
+                        Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
+                        intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
+                        startActivity(intent);
+                    }
                 } else {
                     //Старт активити с кликером или поражением
                     lostDialog();
@@ -187,11 +190,13 @@ public class QuestionActivity extends AppCompatActivity {
                     gameProcess.addScore(question);
                     //Старт активити с некст мапой, или концом игры
                     if(gameProcess.isScoreEnough()){
-                        //Старт активити с победой
+                        winDialog();
                     }
-                    Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
-                    intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
-                    startActivity(intent);
+                    else {
+                        Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
+                        intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
+                        startActivity(intent);
+                    }
                 } else {
                     //Старт активити с кликером или поражением
                     lostDialog();
@@ -206,12 +211,13 @@ public class QuestionActivity extends AppCompatActivity {
                     gameProcess.addScore(question);
                     //Старт активити с некст мапой, или концом игры
                     if(gameProcess.isScoreEnough()){
-                        //Старт активити с победой
+                        winDialog();
                     }
-
-                    Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
-                    intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
-                    startActivity(intent);
+                    else {
+                        Intent intent = new Intent(QuestionActivity.this, MapActivity.class);
+                        intent.putExtra(GameProcess.class.getSimpleName(), gameProcess);
+                        startActivity(intent);
+                    }
                 } else {
                     //Старт активити с кликером или поражением
                     lostDialog();
@@ -232,6 +238,36 @@ public class QuestionActivity extends AppCompatActivity {
 
         AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(QuestionActivity.this);
         alertDialogBuilderUserInput.setView(view);
+        lostSound();
+
+        alertDialogBuilderUserInput
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+        final AlertDialog alertDialog = alertDialogBuilderUserInput.create();
+        alertDialog.show();
+
+        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(QuestionActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void winDialog(){
+        LayoutInflater layoutInflaterAndroid = LayoutInflater.from(getApplicationContext());
+        View view = layoutInflaterAndroid.inflate(R.layout.win_layout, null);
+
+        AlertDialog.Builder alertDialogBuilderUserInput = new AlertDialog.Builder(QuestionActivity.this);
+        alertDialogBuilderUserInput.setView(view);
+
 
         alertDialogBuilderUserInput
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -295,8 +331,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         @Override
         public void setLevel() {
-            level = (Button) findViewById(R.id.level);
-            level.setText(String.valueOf(gameProcess.getGame().getLevel()));
+
         }
 
         @Override
@@ -348,8 +383,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         @Override
         public void setLevel() {
-            level = (Button) findViewById(R.id.level);
-            level.setText(String.valueOf(gameProcess.getGame().getLevel()));
+
         }
 
         @Override
@@ -371,8 +405,7 @@ public class QuestionActivity extends AppCompatActivity {
             iv = (ImageView) findViewById(R.id.actual_image);
             Drawable img = getResources().getDrawable(R.drawable.note_img);
 
-            pb = (Button) findViewById(R.id.play_button);
-            pb.setOnClickListener(new View.OnClickListener() {
+            iv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     releaseMediaPlayer();
@@ -431,8 +464,7 @@ public class QuestionActivity extends AppCompatActivity {
 
         @Override
         public void setLevel() {
-            level = (Button) findViewById(R.id.level);
-            level.setText(String.valueOf(gameProcess.getGame().getLevel()));
+
         }
 
         @Override
@@ -455,6 +487,26 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void lostSound() {
+        releaseMediaPlayer();
+        int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener,
+                AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+        if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+            // We have audio focus now.
+
+            // Create and setup the {@link MediaPlayer} for the audio resource associated
+            // with the current word
+            mMediaPlayer = MediaPlayer.create(QuestionActivity.this, R.raw.lost_sound);
+
+            // Start the audio file
+            mMediaPlayer.start();
+
+            // Setup a listener on the media player, so that we can stop and release the
+            // media player once the sound has finished playing.
+            mMediaPlayer.setOnCompletionListener(mCompletionListener);
+        }
     }
 
 

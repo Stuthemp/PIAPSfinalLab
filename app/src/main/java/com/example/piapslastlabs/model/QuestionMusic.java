@@ -87,7 +87,7 @@ public class QuestionMusic implements QuestionInterface, Serializable, Observer 
 
     @Override
     public int getResourceId() {
-        return 0;
+        return audioResourceId;
     }
 
     public int getAudioResourceId() {

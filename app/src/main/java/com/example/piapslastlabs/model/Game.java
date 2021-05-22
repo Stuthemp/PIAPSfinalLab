@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Game implements Serializable, Observable {
 
-    private final int SCORE_FOR_WIN = 1000;
+    private final int SCORE_FOR_WIN = 1600;
 
     private int score = 0;
 

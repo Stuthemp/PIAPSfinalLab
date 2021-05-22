@@ -44,7 +44,6 @@ public class MapActivity extends AppCompatActivity {
     TextView hardCost = null;
 
     Button score = null;
-    Button level = null;
 
     LinearLayout easyChoice = null;
     LinearLayout normalChoice = null;
@@ -126,10 +125,9 @@ public class MapActivity extends AppCompatActivity {
     private void generateMap(GameProcess game){
 
         score = (Button) findViewById(R.id.score);
-        level = (Button) findViewById(R.id.level);
+
 
         score.setText(String.valueOf(game.getGame().getScore()));
-        level.setText(String.valueOf(game.getGame().getLevel()));
 
         easyQuestion = game.getQuestionRandomizer().getEasyQuestion();
         normalQuestion = game.getQuestionRandomizer().getNormalQuestion();
