@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <Button-->
+<!--        android:id="@+id/level"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Уровень"-->
+<!--        app:layout_constraintRight_toLeftOf="@+id/points"-->
+<!--        app:layout_constraintVertical_chainStyle="packed"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/map"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/points"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Очки"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toRightOf="@+id/level"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/map"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/map"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/points"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/normal_choice"/>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintTop_toTopOf="@id/map"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/map"-->
+<!--        app:layout_constraintRight_toRightOf="@id/map"-->
+<!--        app:layout_constraintStart_toStartOf="@id/hard_choice">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/image_right"-->
+<!--            android:layout_width="50dp"-->
+<!--            android:layout_height="50dp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/theme_name_right"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:textAppearance="?android:textAppearanceMedium"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:text="Theme" />-->
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--    android:layout_width="150dp"-->
+<!--    android:layout_height="50dp"-->
+<!--    android:orientation="horizontal"-->
+<!--    app:layout_constraintTop_toTopOf="@id/map"-->
+<!--    app:layout_constraintBottom_toBottomOf="@id/map"-->
+<!--    app:layout_constraintStart_toStartOf="@id/map"-->
+<!--        >-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="50dp"-->
+<!--        android:layout_height="50dp" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/theme_name"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:textAppearance="?android:textAppearanceMedium"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        android:text="Theme" />-->
+
+<!--</LinearLayout>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/normal_choice"-->
+<!--        android:text="1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/map"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/easy_choice"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+<!--    <Button-->
+<!--        android:id="@+id/easy_choice"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="2"-->
+<!--        app:layout_constraintRight_toLeftOf="@+id/hard_choice"-->
+<!--        app:layout_constraintVertical_chainStyle="packed"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/normal_choice" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/hard_choice"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="3"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintVertical_chainStyle="packed"-->
+<!--        app:layout_constraintLeft_toRightOf="@+id/easy_choice"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/normal_choice"/>-->
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
